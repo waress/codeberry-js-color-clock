@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2016 by waress (http://jsbin.com/felayo/4/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
+<style id="jsbin-css">
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#clock {
+  text-align: center;
+  position: relative;
+  top: 50%;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 3em;
+  margin-top: -1.5em;
+  color: rebeccapurple;
+}
+</style>
+</head>
+<body>
+  <div id="clock">10:13:00</div>
+<script id="jsbin-javascript">
+function colorClock() {
+  var date = new Date();
+
+  var hours = date.getHours();
+  if (hours < 10) {
+    hours = '0' + hours;
+  }
+
+  var minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = '0' + minutes;
+  }
+  var seconds = date.getSeconds();
+
+  if (seconds < 10) {
+    seconds = '0' + seconds;
+  }
+
+  var clockFace = hours + ':' + minutes + ':' + seconds;
+  
+  var hexColor = '#' + hours + minutes + seconds;
+
+  document.getElementById('clock').innerHTML = clockFace;
+  document.body.style.background = hexColor;
+  
+  setTimeout(function() {
+    colorClock();
+  }, 1000);
+  
+  console.log(hexColor);
+}
+
+colorClock();
+
+
+
+
+
+
+</script>
+</body>
+</html>
